@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mare Rest — ресторан средиземноморской кухни в Набережных Челнах</title>
+  <meta name="description" content="Mare Rest — ресторан средиземноморской кухни в ТЦ Sunrise City, Набережные Челны. Меню, атмосфера, бронирование столика и контакты.">
+  <meta name="theme-color" content="#F7F3EC">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#F7F3EC; --paper:#FFFFFF; --ink:#1C2430; --muted:#556273; --soft:#8592A3;
+      --line:#E3DDD2; --sea:#1F5F7A; --sea2:#174A60; --olive:#7A8B5A; --sun:#C98A3A;
+      --wash:#EEF5F7; --max:1180px; --r:18px; --shadow:0 18px 40px rgba(28,36,48,.07);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:linear-gradient(180deg,#FFFCF8 0%,var(--bg) 100%);
+      font:400 16px/1.65 "Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;}
+    a{color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+    h1,h2,h3{margin:0}
+    h1{font:700 clamp(42px,5.6vw,74px)/0.98 "Cormorant Garamond",Georgia,serif;letter-spacing:-.02em}
+    h2{font:700 clamp(30px,3.4vw,46px)/1.04 "Cormorant Garamond",Georgia,serif;letter-spacing:-.01em}
+    h3{font:800 19px/1.2 "Manrope",sans-serif}
+    p{margin:0}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;
+      border:1px solid var(--sea);background:var(--sea);color:#fff;text-decoration:none;
+      font:800 14px/1 "Manrope",sans-serif;transition:.18s background,.18s transform,.18s border-color;cursor:pointer}
+    .btn:hover{background:var(--sea2);border-color:var(--sea2);transform:translateY(-1px)}
+    .btn.ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+    .btn.ghost:hover{background:#FDFBF7}
+    .nav{position:sticky;top:0;z-index:30;background:rgba(255,252,248,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav .inner{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:76px}
+    .brand{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+    .brand b{font:700 30px/1 "Cormorant Garamond",Georgia,serif;letter-spacing:.01em}
+    .brand span{color:var(--soft);font:700 11px/1 "Manrope",sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-top:4px}
+    .menu{display:flex;gap:18px;flex-wrap:wrap}
+    .menu a{color:var(--muted);text-decoration:none;font:700 13px/1 "Manrope",sans-serif}
+    .menu a:hover{color:var(--ink)}
+    .hero{padding:46px 0 28px}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center}
+    .tag{display:inline-flex;padding:8px 12px;border-radius:999px;background:var(--wash);border:1px solid #D7E6EB;color:var(--sea);font:800 12px/1 "Manrope",sans-serif;margin-bottom:16px}
+    .lead{margin-top:16px;max-width:58ch;color:var(--muted);font-size:18px;line-height:1.65}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .fact{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.7);font:700 13px/1 "Manrope",sans-serif;color:var(--muted)}
+    .app-wrap{display:flex;justify-content:center;align-items:center;position:relative;min-height:560px}
+    .app-wrap::before{content:"";position:absolute;inset:10% 12%;border-radius:50%;background:radial-gradient(circle,rgba(31,95,122,.12),rgba(31,95,122,0));filter:blur(2px)}
+    .phone{position:relative;width:min(320px,100%);aspect-ratio:9/19.5;background:#11161D;border-radius:42px;padding:10px;box-shadow:0 30px 60px rgba(28,36,48,.18), inset 0 0 0 1px rgba(255,255,255,.08)}
+    .phone::before{content:"";position:absolute;top:10px;left:50%;transform:translateX(-50%);width:34%;height:22px;background:#11161D;border-radius:0 0 16px 16px;z-index:3}
+    .screen{height:100%;border-radius:32px;overflow:hidden;background:linear-gradient(180deg,#FFF9F2 0%,#F4EFE7 100%);position:relative}
+    .app-top{padding:34px 16px 14px;background:linear-gradient(180deg,#fff,#FFF9F2);border-bottom:1px solid #EAE2D6}
+    .app-brand{font:700 26px/1 "Cormorant Garamond",serif}
+    .app-sub{color:var(--soft);font:700 10px/1 "Manrope",sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+    .app-search{margin-top:12px;padding:10px 12px;border-radius:12px;background:#fff;border:1px solid #EAE2D6;color:#9AA6B2;font:600 12px/1 "Manrope",sans-serif}
+    .app-body{padding:12px 12px 14px;display:grid;gap:10px}
+    .app-card{background:#fff;border:1px solid #ECE3D8;border-radius:14px;padding:12px}
+    .app-card b{display:block;font:800 13px/1.2 "Manrope",sans-serif}
+    .app-card span{display:block;color:var(--muted);font:600 11px/1.35 "Manrope",sans-serif;margin-top:3px}
+    .app-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .app-mini{background:var(--wash);border:1px solid #DCE9EE;border-radius:12px;padding:10px}
+    .app-mini b{display:block;color:var(--sea);font:800 12px/1.2 "Manrope",sans-serif}
+    .app-mini span{display:block;color:#5E7682;font:600 10px/1.3 "Manrope",sans-serif;margin-top:2px}
+    .app-nav{position:absolute;left:10px;right:10px;bottom:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:8px;border-radius:18px;background:rgba(255,255,255,.92);border:1px solid #EAE2D6;backdrop-filter:blur(6px)}
+    .app-nav span{padding:8px 4px;border-radius:12px;text-align:center;font:800 10px/1 "Manrope",sans-serif;color:var(--soft)}
+    .app-nav span.on{background:var(--sea);color:#fff}
+    .mock-label{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);white-space:nowrap;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--muted);font:700 12px/1 "Manrope",sans-serif;box-shadow:var(--shadow)}
+    section{padding:68px 0}
+    .alt{background:rgba(255,255,255,.55);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:24px}
+    .head p{max-width:62ch;color:var(--muted)}
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--shadow)}
+    .card p{color:var(--muted);font-size:15px;margin-top:8px}
+    .ico{width:44px;height:44px;border-radius:14px;background:var(--wash);color:var(--sea);display:grid;place-items:center;font:800 14px/1 "Cormorant Garamond",serif;margin-bottom:12px}
+    .dish{box-shadow:none}
+    .dish b{display:inline-block;margin-top:12px;color:var(--sea);font:800 13px/1 "Manrope",sans-serif}
+    .app-feat{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start}
+    .steps{display:grid;gap:12px}
+    .step{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px}
+    .n{width:36px;height:36px;border-radius:12px;background:var(--sea);color:#fff;display:grid;place-items:center;font:800 14px/1 "Manrope",sans-serif}
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .dl{display:grid;gap:13px}
+    .dl div{display:grid;grid-template-columns:150px 1fr;gap:12px;font-size:15px}
+    .dl dt{color:var(--soft);font-weight:700}
+    .dl dd{margin:0}
+    .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .pill{display:inline-flex;padding:10px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font:700 13px/1 "Manrope",sans-serif;color:var(--muted);background:#fff}
+    .pill:hover{color:var(--ink)}
+    .cta{background:linear-gradient(135deg,var(--sea),#2D7E8F);color:#fff;border-radius:24px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:18px}
+    .cta h2{color:#fff}
+    .cta p{color:rgba(255,255,255,.84);margin-top:6px}
+    .cta .btn{background:#fff;color:var(--sea);border-color:#fff}
+    footer{padding:30px 0 42px;color:var(--soft);font-size:13px;border-top:1px solid var(--line)}
+    .foot{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+    .demo{margin-top:12px;color:var(--sea);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+    @media (max-width:980px){.hero-grid,.app-feat,.grid4,.grid3,.visit,.foot{grid-template-columns:1fr 1fr}.menu{display:none}.head,.cta{flex-direction:column;align-items:flex-start}.app-wrap{min-height:520px}}
+    @media (max-width:700px){.hero-grid,.app-feat,.grid4,.grid3,.visit,.foot{grid-template-columns:1fr}.dl div{grid-template-columns:1fr;gap:2px}.app-wrap{min-height:500px;padding-bottom:18px}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap inner">
+      <a class="brand" href="#top"><b>Mare Rest</b><span>Mediterranean Restaurant</span></a>
+      <div class="menu">
+        <a href="#about">О ресторане</a>
+        <a href="#dishes">Меню</a>
+        <a href="#app">Приложение</a>
+        <a href="#visit">Контакты</a>
+      </div>
+      <a class="btn" href="#visit">Забронировать</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="tag">ТЦ Sunrise City · Набережные Челны</div>
+          <h1>Средиземноморская кухня и атмосфера для неспешного вечера</h1>
+          <p class="lead">Mare Rest — ресторан средиземноморской кухни на проспекте Сююмбике, 40а. Завтраки, бизнес-ланчи, ужины, живая музыка, летняя веранда и банкетные мероприятия.</p>
+          <div class="actions">
+            <a class="btn" href="#visit">Связаться для брони</a>
+            <a class="btn ghost" href="#dishes">Посмотреть направления меню</a>
+          </div>
+          <div class="facts">
+            <span class="fact">4,8 · 534 оценки</span>
+            <span class="fact">Лучший ресторан 2026 (2ГИС)</span>
+            <span class="fact">Сегодня 10:00–24:00</span>
+            <span class="fact">До 120 мест для банкетов</span>
+          </div>
+        </div>
+        <div class="app-wrap" aria-hidden="true">
+          <div class="phone">
+            <div class="screen">
+              <div class="app-top">
+                <div class="app-brand">Mare Rest</div>
+                <div class="app-sub">Mobile App Mockup</div>
+                <div class="app-search">Найти блюдо, столик или акцию</div>
+              </div>
+              <div class="app-body">
+                <div class="app-card"><b>Забронировать столик</b><span>Дата, время, гости и пожелания — в несколько шагов.</span></div>
+                <div class="app-row">
+                  <div class="app-mini"><b>Меню</b><span>Фото, состав, категории</span></div>
+                  <div class="app-mini"><b>Доставка</b><span>Заказ навынос/доставка</span></div>
+                </div>
+                <div class="app-card"><b>Пицца на дровах</b><span>Римская и классическая пицца, паста, стейки, салаты.</span></div>
+                <div class="app-card"><b>Профиль гостя</b><span>История заказов, бонусы и уведомления.</span></div>
+              </div>
+              <div class="app-nav">
+                <span class="on">Главная</span><span>Меню</span><span>Бронь</span><span>Профиль</span>
+              </div>
+            </div>
+          </div>
+          <div class="mock-label">Макет мобильного приложения (концепт)</div>
+        </div>
+      </div>
+    </header>
+
+    <section id="about" class="alt">
+      <div class="wrap">
+        <div class="head">
+          <div><h2>О ресторане</h2></div>
+          <p>Средиземноморская кухня, винная карта и пространство для повседневных встреч, завтраков, деловых обедов и праздников.</p>
+        </div>
+        <div class="grid4">
+          <article class="card"><div class="ico">I</div><h3>Кухня и напитки</h3><p>Средиземноморская кухня, пицца на дровах, паста, стейки, салаты, супы, винная карта.</p></article>
+          <article class="card"><div class="ico">II</div><h3>Форматы визита</h3><p>Завтраки, бизнес-ланчи, ужины, постное меню, кофе и чай с собой.</p></article>
+          <article class="card"><div class="ico">III</div><h3>Атмосфера</h3><p>Живая музыка, летняя веранда, столики на улице, панорамный вид, настольные игры.</p></article>
+          <article class="card"><div class="ico">IV</div><h3>События</h3><p>Бронирование столиков, заказ навынос, доставка и проведение банкетов до 120 мест.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="dishes">
+      <div class="wrap">
+        <div class="head">
+          <div><h2>Направления меню</h2></div>
+          <p>Примеры направлений из открытых данных. Актуальный состав, цены и сезонные позиции уточняйте в ресторане.</p>
+        </div>
+        <div class="grid3">
+          <article class="card dish"><h3>Пицца и горячее</h3><p>Римская и пицца на дровах, паста, стейки, шашлык, люля-кебаб, сувлаки, гирос.</p><b>Средний чек — около 2 000 ₽</b></article>
+          <article class="card dish"><h3>Лёгкие блюда</h3><p>Салаты, супы, закуски, позиции для завтрака, бизнес-ланча и постного меню.</p><b>Уточняйте актуальное меню</b></article>
+          <article class="card dish"><h3>Напитки и десерты</h3><p>Винная карта, напитки к блюдам, кофе и чай с собой.</p><b>Винный ресторан</b></article>
+        </div>
+        <p style="margin-top:14px;color:var(--soft);font-size:13px;line-height:1.55">Меню и цены носят ознакомительный характер; состав и стоимость уточняйте в ресторане. Алкоголь — при наличии и с соблюдением требований законодательства.</p>
+      </div>
+    </section>
+
+    <section id="app" class="alt">
+      <div class="wrap">
+        <div class="head">
+          <div><h2>Макет мобильного приложения</h2></div>
+          <p>Помимо сайта, для ресторана можно разработать мобильное приложение: меню, бронирование, доставка, уведомления и программа лояльности.</p>
+        </div>
+        <div class="app-feat">
+          <div class="card" style="box-shadow:none">
+            <h3>Что может быть в приложении</h3>
+            <div class="grid3" style="margin-top:14px">
+              <div class="card" style="box-shadow:none;padding:16px"><h3 style="font-size:16px">Меню</h3><p>Категории, фото, состав, фильтры, актуальные цены.</p></div>
+              <div class="card" style="box-shadow:none;padding:16px"><h3 style="font-size:16px">Бронь</h3><p>Выбор даты, времени, количества гостей и комментария.</p></div>
+              <div class="card" style="box-shadow:none;padding:16px"><h3 style="font-size:16px">Заказ</h3><p>Доставка или самовывоз, статусы и уведомления.</p></div>
+            </div>
+          </div>
+          <div class="steps">
+            <div class="step"><div class="n">1</div><div><h3>Концепт и экраны</h3><p>Прорабатываем сценарии гостя: просмотр меню, бронь, заказ, профиль.</p></div></div>
+            <div class="step"><div class="n">2</div><div><h3>Дизайн</h3><p>Подбираем стиль под ресторан, готовим понятный интерфейс и макеты экранов.</p></div></div>
+            <div class="step"><div class="n">3</div><div><h3>Разработка</h3><p>Собираем приложение и при необходимости подключаем меню, оплату, CRM или уведомления.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="visit">
+      <div class="wrap">
+        <div class="head">
+          <div><h2>Контакты и бронирование</h2></div>
+          <p>Уточните свободные столики, условия банкетов, доставку и актуальное меню в ресторане или в официальных каналах.</p>
+        </div>
+        <div class="visit">
+          <div class="card">
+            <dl class="dl">
+              <div><dt>Адрес</dt><dd>Набережные Челны, ТЦ Sunrise City<br>проспект Сююмбике, 40а, 2 этаж<br><span style="color:var(--soft)">Новый Город, Центральный район</span></dd></div>
+              <div><dt>Время работы</dt><dd>Сегодня: 10:00–24:00 (уточняйте актуальный график)</dd></div>
+              <div><dt>Бронирование</dt><dd>По телефону и в мессенджерах ресторана</dd></div>
+              <div><dt>Банкеты</dt><dd>Проведение мероприятий — до 120 мест</dd></div>
+              <div><dt>Оплата</dt><dd>Картой, наличными, через банк, по QR-коду</dd></div>
+            </dl>
+            <div class="links">
+              <a class="pill" href="https://vk.ru/marerest" target="_blank" rel="noopener">ВКонтакте</a>
+              <a class="pill" href="https://wa.me/79274875252" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="pill" href="https://2gis.ru/nabchelny/firm/70000001098703839" target="_blank" rel="noopener">Карточка в 2ГИС</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Что указать при бронировании</h3>
+            <p>Дата и время, количество гостей, пожелания по столику (веранда, зал, панорамный вид при наличии), повод и контактный телефон.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px">
+              <a class="btn" href="https://wa.me/79274875252" target="_blank" rel="noopener">Написать в WhatsApp</a>
+              <a class="btn ghost" href="https://vk.ru/marerest" target="_blank" rel="noopener">Открыть VK</a>
+            </div>
+            <p style="margin-top:16px;color:var(--soft);font-size:13px;line-height:1.55">В полной версии сайта можно добавить онлайн-бронь, форму заявки, меню с ценами, доставку и интеграцию с CRM.</p>
+          </div>
+        </div>
+        <div class="cta">
+          <div>
+            <h2>Нужны сайт и мобильное приложение для ресторана?</h2>
+            <p>Можно собрать сайт-обёртку, подключить меню и бронь, а также разработать макет и приложение для гостей.</p>
+          </div>
+          <a class="btn" href="#visit">Обсудить проект</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <div><b style="color:var(--ink)">Mare Rest</b> — ресторан средиземноморской кухни, Набережные Челны, ТЦ Sunrise City.</div>
+        <div class="demo">Демо-версия макета сайта и концепт мобильного приложения</div>
+      </div>
+      <div>Информация носит ознакомительный характер. Меню, цены, график, акции и доступность услуг уточняйте в ресторане.</div>
+    </div>
+  </footer>
+</body>
+</html>
